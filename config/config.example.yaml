@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  mode: debug
+  allowed_origins:
+    - http://localhost:5173
+  log_level: info
+
+database:
+  host: localhost
+  port: 3306
+  user: your_db_user
+  password: your_db_password
+  dbname: tv_distribution
+  max_idle_conns: 10
+  max_open_conns: 50
+  conn_max_lifetime: 1h
+  conn_max_idle_time: 15m
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
+
+security:
+  data_encryption_key: "replace-with-your-encryption-key"
+
+jwt:
+  secret: "replace-with-a-strong-jwt-secret"
+  admin_expire_hours: 24
+  agent_expire_hours: 12
+  refresh_hours: 168
+  cookie_domain: ""
+  cookie_secure: false
+  cookie_same_site: lax
+
+tradingview:
+  base_url: https://cn.tradingview.com
+  pine_facade_url: https://pine-facade.tradingview.com/pine-facade
+  sessionid: ""
+  sessionid_sign: ""
+  request_timeout: 10s
+  max_retries: 3
+
+scheduler:
+  cookie_check: "*/30 * * * *"
+  expire_scan: "*/10 * * * *"
+  script_sync: "0 3 * * *"
+  tv_access_sync: "0 3 * * *"
+  access_audit: "0 4 * * *"
+  payment_proof_cleanup: "30 4 * * *"
+
+admin:
+  username: admin
+  password: "replace-with-a-secure-password"
+  display_name: 超级管理员
